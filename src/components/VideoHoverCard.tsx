@@ -39,42 +39,44 @@ export default function VideoHoverCard({
 
   const content = (
     <motion.div
-      className="relative aspect-video overflow-hidden rounded-sm bg-gray-900 cursor-pointer group w-full"
+      className="group w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={!href ? onClick : undefined}
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
     >
-      {/* Video or Image */}
-      {hoverVideo && isHovered ? (
-        <video
-          ref={videoRef}
-          src={hoverVideo}
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          onLoadedData={() => setIsVideoLoaded(true)}
-          style={{ opacity: isVideoLoaded ? 1 : 0, transition: "opacity 0.3s" }}
-        />
-      ) : (
-        <Image
-          src={thumb}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      )}
+      <div className="relative aspect-video overflow-hidden rounded-sm bg-gray-900 cursor-pointer w-full">
+        {/* Video or Image */}
+        {hoverVideo && isHovered ? (
+          <video
+            ref={videoRef}
+            src={hoverVideo}
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            onLoadedData={() => setIsVideoLoaded(true)}
+            style={{ opacity: isVideoLoaded ? 1 : 0, transition: "opacity 0.3s" }}
+          />
+        ) : (
+          <Image
+            src={thumb}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
 
-      {/* Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-        <span className="text-xs font-medium text-gray-400 mb-1 block">{type}</span>
-        <h3 className="text-sm font-semibold text-white">{title}</h3>
+      <div className="pt-3 text-left">
+        <h3 className="text-sm md:text-[15px] font-medium text-white tracking-[0.02em]">
+          {title}
+        </h3>
       </div>
     </motion.div>
   );

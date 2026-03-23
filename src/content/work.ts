@@ -29,7 +29,7 @@ export const workItems: WorkItem[] = [
   },
   {
     id: "3",
-    title: "The Long Game",
+    title: "The Long Game Title Sequence",
     type: "Titles",
     thumb: "/images/THE_Method_6_30_2023-BETALOCK_COLORPREP_00_01_26_14.jpg",
     videoUrl: "https://vimeo.com/1068905537",
