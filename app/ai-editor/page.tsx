@@ -3,9 +3,9 @@ import Link from "next/link";
 import Footer from "../../src/components/Footer";
 
 export const metadata: Metadata = {
-  title: "AI Editor | Aron Paul Orton",
+  title: "AI Sequence Editor | Aron Paul Orton",
   description:
-    "AI editor for film, commercial, promo, and sequence-driven work. Aron Paul Orton combines veteran editorial judgment with AI-native workflows and premium post standards.",
+    "AI sequence editor for film, commercial, promo, and sequence-driven work. Aron Paul Orton combines veteran editorial judgment with AI-native workflows and premium post standards.",
 };
 
 export default function AIEditorPage() {
@@ -23,10 +23,10 @@ export default function AIEditorPage() {
           <div className="max-w-5xl mx-auto w-full px-8 md:px-14 lg:px-20 xl:px-24">
             <div className="max-w-3xl">
               <p className="mb-5 text-[11px] md:text-[12px] uppercase tracking-[0.28em] text-white/70">
-                AI Editor · Editorial Direction · Premium Post Workflow
+                AI Sequence Editor · Editorial Direction · Premium Post Workflow
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 tracking-tight leading-[0.92]">
-                AI Editor for Film, Commercial, and Sequence Work
+                AI Sequence Editor for Film, Commercial, and Sequence Work
               </h1>
               <p className="text-xl text-white/78 leading-relaxed max-w-3xl">
                 I help brands, filmmakers, agencies, and creative teams use AI inside a serious editorial workflow — building cinematic work that still holds up to real post-production, finishing, and delivery standards.
@@ -39,7 +39,7 @@ export default function AIEditorPage() {
       <section className="py-24 md:py-32 border-b border-gray-900">
         <div className="max-w-5xl mx-auto px-8 md:px-14 lg:px-20 xl:px-24 grid md:grid-cols-2 gap-12 md:gap-16">
           <div>
-            <h2 className="text-3xl font-light mb-5 tracking-tight">What I do as an AI editor</h2>
+            <h2 className="text-3xl font-light mb-5 tracking-tight">What I do as an AI sequence editor</h2>
             <p className="text-gray-400 leading-relaxed mb-5">
               My work sits between traditional editing craft and AI-native creative production. That includes sequence development, AI-assisted visual workflows, editorial shaping, pacing, shot-system design, and helping projects move from proof-of-concept into work that can survive client review and real-world delivery.
             </p>
@@ -88,7 +88,7 @@ export default function AIEditorPage() {
       <section className="py-24 md:py-32">
         <div className="max-w-4xl mx-auto px-8 md:px-14 lg:px-20 xl:px-24 text-center">
           <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
-            Need an AI editor who still thinks like an editor?
+            Need an AI sequence editor who still thinks like an editor?
           </h2>
           <p className="text-xl text-gray-400 mb-10 leading-relaxed">
             If your project needs a mix of editorial judgment, AI-native sequence thinking, and premium execution, let’s talk.

@@ -21,7 +21,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/work", label: "Work" },
-    { href: "/ai-editor", label: "AI Editor" },
+    { href: "/ai-editor", label: "AI Sequence Editor" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

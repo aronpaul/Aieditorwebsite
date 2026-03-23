@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Footer from "../../src/components/Footer";
 
 export default function AboutPage() {
@@ -31,11 +30,12 @@ export default function AboutPage() {
       {/* Story Section */}
       <section className="py-16 md:py-24 border-y border-gray-900">
         <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+          <div className="mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="max-w-3xl"
             >
               <h2 className="text-3xl font-light mb-6 tracking-tight">
                 Experience
@@ -47,22 +47,8 @@ export default function AboutPage() {
                 My current focus is helping creative teams use AI as part of a serious filmmaking and commercial workflow, not as a gimmick. That means building image and sequence systems that can survive real client expectations, real revisions, and real delivery standards.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                I work at the intersection of editorial judgment, sequence direction, and hybrid visual production — bringing structure to ideas that need to feel cinematic, original, and execution-ready. If you are specifically looking for an <a href="/ai-editor" className="text-white underline underline-offset-4 hover:text-gray-300">AI editor</a> for film, commercial, or sequence-driven work, that is exactly the lane this site is built to support.
+                I work at the intersection of editorial judgment, sequence direction, and hybrid visual production — bringing structure to ideas that need to feel cinematic, original, and execution-ready. If you are specifically looking for an <a href="/ai-editor" className="text-white underline underline-offset-4 hover:text-gray-300">AI Sequence Editor</a> for film, commercial, or sequence-driven work, that is exactly the lane this site is built to support.
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative aspect-square rounded-sm overflow-hidden border border-gray-900"
-            >
-              <Image
-                src="/images/about-aron.jpg"
-                alt="Aron Paul Orton"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
             </motion.div>
           </div>
         </div>

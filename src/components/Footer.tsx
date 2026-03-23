@@ -18,7 +18,7 @@ export default function Footer({ email }: FooterProps) {
             {email}
           </a>
           <Link href="/ai-editor" className="hover:text-white transition-colors uppercase tracking-[0.16em] text-[11px]">
-            AI Editor
+            AI Sequence Editor
           </Link>
         </div>
         <span>© {new Date().getFullYear()} Aron Paul Orton</span>

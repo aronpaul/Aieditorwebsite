@@ -113,7 +113,7 @@ export default function Home() {
                   href="/ai-editor"
                   className="px-10 py-4 text-white/78 font-light tracking-[0.18em] hover:text-white transition-colors duration-200 uppercase text-sm"
                 >
-                  View AI Editor Page →
+                  View AI Sequence Editor Page →
                 </a>
               </div>
               <p className="mt-8 text-[11px] md:text-[12px] uppercase tracking-[0.24em] text-white/65">
@@ -272,7 +272,7 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-gray-400 mb-10 text-xl md:text-2xl max-w-4xl leading-relaxed"
           >
-            If you are building a film, campaign, sequence, or proof-of-concept that needs editorial judgment and AI-native execution, let’s talk. If you want the clearest version of that positioning, visit the <a href="/ai-editor" className="text-white underline underline-offset-4 hover:text-gray-300">AI Editor</a> page.
+            If you are building a film, campaign, sequence, or proof-of-concept that needs editorial judgment and AI-native execution, let’s talk. If you want the clearest version of that positioning, visit the <a href="/ai-editor" className="text-white underline underline-offset-4 hover:text-gray-300">AI Sequence Editor</a> page.
           </motion.p>
           <motion.a
             initial={{ opacity: 0, y: 20 }}

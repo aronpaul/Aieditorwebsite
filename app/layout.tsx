@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aron Paul Orton | AI Editor for Film, Commercial, and Sequence Work",
+  title: "Aron Paul Orton | AI Sequence Editor for Film, Commercial, and Sequence Work",
   description: "Veteran film and commercial editor using AI-native workflows for cinematic post-production, AI-enhanced editing, sequence direction, and premium creative execution.",
   keywords: [
     "AI editor",
@@ -43,7 +43,7 @@ export default function RootLayout({
       {
         "@type": "Person",
         name: "Aron Paul Orton",
-        jobTitle: "AI Editor",
+        jobTitle: "AI Sequence Editor",
         description:
           "Veteran film and commercial editor using AI-native workflows for cinematic post-production, sequence direction, and premium creative execution.",
         url: "https://aronpaulorton.com",
