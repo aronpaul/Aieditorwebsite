@@ -12,6 +12,14 @@ export interface WorkItem {
 export const workItems: WorkItem[] = [
   // First row: Match case studies (open videos in modal)
   {
+    id: "0",
+    title: 'The Chubbies - "Fall Into My Arms"',
+    type: "Music Video",
+    thumb: "/images/the-chubbies-fall-into-my-arms-hero-v2.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=qLtgGLj__Go",
+    featured: true,
+  },
+  {
     id: "1",
     title: "Reign Storm",
     type: "Commercial",

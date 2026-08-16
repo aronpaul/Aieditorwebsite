@@ -13,11 +13,26 @@ export default function CaseStudyPage() {
   const params = useParams();
   const slug = params?.slug as string;
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string | undefined>(undefined);
+  const [activeVideoTitle, setActiveVideoTitle] = useState("");
   const caseStudy = caseStudies.find((cs) => cs.slug === slug);
 
   if (!caseStudy) {
     notFound();
   }
+
+  const openVideo = (videoUrl: string | undefined, videoTitle: string) => {
+    if (!videoUrl) return;
+    setActiveVideoUrl(videoUrl);
+    setActiveVideoTitle(videoTitle);
+    setIsVideoOpen(true);
+  };
+
+  const closeVideo = () => {
+    setIsVideoOpen(false);
+    setActiveVideoUrl(undefined);
+    setActiveVideoTitle("");
+  };
 
   return (
     <main className="page-offset min-h-screen bg-black text-white">
@@ -213,35 +228,77 @@ export default function CaseStudyPage() {
             </motion.section>
 
             {/* Video */}
-            {caseStudy.media.video && (
+            {(caseStudy.media.video || caseStudy.media.btsVideo) && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="mt-12"
               >
-                <button
-                  onClick={() => setIsVideoOpen(true)}
-                  className="group relative w-full aspect-video overflow-hidden rounded-sm border border-gray-900 hover:border-gray-800 transition-colors"
-                >
-                  <Image
-                    src={caseStudy.media.hero}
-                    alt={caseStudy.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <svg
-                        className="w-6 h-6 text-white ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                      </svg>
-                    </div>
-                  </div>
-                </button>
+                <div className="grid gap-6 md:grid-cols-2">
+                  {caseStudy.media.video && (
+                    <button
+                      onClick={() => openVideo(caseStudy.media.video, `${caseStudy.title} - Final Film`)}
+                      className="group relative w-full aspect-video overflow-hidden rounded-sm border border-gray-900 hover:border-gray-800 transition-colors text-left"
+                    >
+                      <Image
+                        src={caseStudy.media.hero}
+                        alt={caseStudy.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-6 h-6 text-white ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5">
+                        <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">Watch</p>
+                        <p className="mt-2 text-lg font-light text-white">Final Film</p>
+                      </div>
+                    </button>
+                  )}
+                  {caseStudy.media.btsVideo && (
+                    <button
+                      onClick={() =>
+                        openVideo(caseStudy.media.btsVideo, `${caseStudy.title} - BTS Comparison`)
+                      }
+                      className="group relative w-full aspect-video overflow-hidden rounded-sm border border-gray-900 hover:border-gray-800 transition-colors text-left"
+                    >
+                      <Image
+                        src={
+                          caseStudy.media.btsThumbnail ||
+                          caseStudy.media.gallery?.[1] ||
+                          caseStudy.media.hero
+                        }
+                        alt={`${caseStudy.title} behind the scenes`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                          <svg
+                            className="w-6 h-6 text-white ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5">
+                        <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">Watch</p>
+                        <p className="mt-2 text-lg font-light text-white">BTS Comparison</p>
+                      </div>
+                    </button>
+                  )}
+                </div>
               </motion.div>
             )}
 
@@ -294,12 +351,13 @@ export default function CaseStudyPage() {
       <Footer email="aorton@mac.com" />
 
       {/* Video Modal */}
-      {caseStudy.media.video && (
+      {(caseStudy.media.video || caseStudy.media.btsVideo) && (
         <VideoModal
-          videoUrl={caseStudy.media.video}
-          title={caseStudy.title}
+          videoUrl={activeVideoUrl}
+          title={activeVideoTitle || caseStudy.title}
           isOpen={isVideoOpen}
-          onClose={() => setIsVideoOpen(false)}
+          onClose={closeVideo}
+          poster={caseStudy.media.hero}
         />
       )}
     </main>

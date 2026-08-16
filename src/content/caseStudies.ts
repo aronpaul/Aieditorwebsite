@@ -9,6 +9,8 @@ export interface CaseStudy {
     hero: string;
     gallery?: string[];
     video?: string;
+    btsVideo?: string;
+    btsThumbnail?: string;
   };
   client?: string;
   year?: string;
@@ -21,6 +23,39 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "the-chubbies-fall-into-my-arms",
+    title: 'The Chubbies - "Fall Into My Arms"',
+    summary: "A fully AI-generated music video built around a simple production truth: prompted emotion was not enough. The breakthrough came from replacing text-only acting direction with iPhone performance reference, then running that performance through a reference-driven AI pipeline that could carry emotion, continuity, and editorial intent across 61 shots.",
+    problem: "The song lives in a mother-son dynamic that moves into painful emotional territory. The central challenge was getting a performance to transition inside a single shot, from anger to frustration to breakdown, without flattening into a single readable note. Prompted emotion consistently came back wooden and over-described, while multi-character reaction scenes introduced another layer of instability around power dynamics, eyelines, and group behavior.",
+    approach: "The solution was to stop asking the model to invent the emotional arc from text alone. Jeannette performed each beat to her iPhone from specific planned framings, and those videos became reference-driven inputs for Seedance 2.0's performance replacement. The broader workflow paired character reference sheets, still-first shot development, model selection based on physics and control, Topaz upscaling for reframing latitude, and a traditional Resolve finishing pass to make the film feel coherent rather than generated.",
+    deliverables: [
+      "Final 3:25 music video built from 61 fully generated shots",
+      "Reference-driven performance replacement workflow",
+      "4K finished master upscaled from 1080 sources",
+      "Case-study breakdown and BTS comparison assets",
+    ],
+    brief: "Create a 100% AI-generated music video for The Chubbies' \"Fall Into My Arms\" that could hold emotional weight, not just visual novelty. The piece needed to work as a finished film first, while also proving a serious AI pipeline could carry nuanced performance, continuity, and editorial rhythm over a full song.",
+    constraint: "Prompting emotion directly was dead on arrival. The model could express one feeling at a time, but not transition cleanly between them inside a take. Performance references also needed to match the intended final framing; because the film was boarded after those references were recorded, weeks were lost working around angle, eyeline, and distance mismatches. Multi-character reaction scenes pushed the difficulty further, with four-person emotional dynamics remaining far less controllable than single-subject performance work.",
+    direction: "The creative goal was to make the work feel emotionally inhabited rather than technically impressive. Every major choice leaned toward grounded performance, consistent character identity, and a finished-film sensibility instead of the default AI look. That meant designing shots from stills first, treating model choice as a creative decision rather than a brand preference, and finishing the piece with the same editorial and grading discipline used on live-action work.",
+    execution: "The pipeline was character reference sheets to lock identity, iPhone performance reference to supply emotional timing, Seedance 2.0 for reference-driven video generation after an initial Veo 3.0 start, Topaz upscaling from 1080 to 4K for extra reframing room, then editorial and color finishing in DaVinci Resolve. Still images were used to lock composition, lighting, and wardrobe before expensive video generations. Seedance proved stronger for performance replacement and physical behavior, especially in demanding shots like the boy falling through black space. Resolve was essential for shaping continuity across the cut, softening the overly clean generative house look, and making 61 generated shots feel like one piece of cinema.",
+    outcome: "The finished video proved that emotionally credible AI work depends less on clever prompting than on giving the model the right performance source, framing logic, and post-production discipline. The biggest lessons were blunt: board the film before collecting performance reference, use image-based identity locks early, and budget extra time for scenes with more than two people reacting in frame. The result stands as both a completed music video and a practical blueprint for reference-driven AI filmmaking that treats performance as the load-bearing element.",
+    media: {
+      hero: "/images/the-chubbies-fall-into-my-arms-hero-v2.jpg",
+      gallery: [
+        "/images/the-chubbies-fall-into-my-arms-gallery-03.jpg",
+        "/images/the-chubbies-fall-into-my-arms-gallery-04.jpg",
+        "/images/the-chubbies-fall-into-my-arms-gallery-05.jpg",
+        "/images/the-chubbies-fall-into-my-arms-gallery-06.jpg",
+        "/images/the-chubbies-fall-into-my-arms-hero-v2.jpg",
+        "/images/the-chubbies-fall-into-my-arms-gallery-02.jpg",
+      ],
+      video: "https://www.youtube.com/watch?v=qLtgGLj__Go",
+      btsVideo: "https://d2ol7oe51mr4n9.cloudfront.net/user_2vJShxds21sGvyfsUDfkIPnjsrP/26b8ecd5-0cf3-465b-9454-5029afe24342.mp4",
+      btsThumbnail: "/images/the-chubbies-fall-into-my-arms-gallery-02.jpg",
+    },
+    client: "The Chubbies",
+  },
   {
     slug: "reign-storm-energy-drink",
     title: "Reign Storm",

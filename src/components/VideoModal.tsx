@@ -17,11 +17,25 @@ const isVimeoUrl = (url: string): boolean => {
   return /vimeo\.com/.test(url);
 };
 
+const isYouTubeUrl = (url: string): boolean => {
+  return /(?:youtube\.com|youtu\.be)/.test(url);
+};
+
 // Extract Vimeo video ID and create embed URL
 const getVimeoEmbedUrl = (url: string): string => {
   const match = url.match(/(?:vimeo\.com\/)(?:.*\/)?(\d+)/);
   if (match && match[1]) {
     return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=0&title=0&byline=0&portrait=0`;
+  }
+  return url;
+};
+
+const getYouTubeEmbedUrl = (url: string): string => {
+  const match = url.match(
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/
+  );
+  if (match && match[1]) {
+    return `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0&modestbranding=1`;
   }
   return url;
 };
@@ -116,6 +130,8 @@ export default function VideoModal({
 
   const isVimeo = isVimeoUrl(videoUrl);
   const vimeoEmbedUrl = isVimeo ? getVimeoEmbedUrl(videoUrl) : null;
+  const isYouTube = isYouTubeUrl(videoUrl);
+  const youTubeEmbedUrl = isYouTube ? getYouTubeEmbedUrl(videoUrl) : null;
 
   return (
     <AnimatePresence>
@@ -184,6 +200,14 @@ export default function VideoModal({
                     src={vimeoEmbedUrl}
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title={title}
+                  />
+                ) : isYouTube && youTubeEmbedUrl ? (
+                  <iframe
+                    src={youTubeEmbedUrl}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     title={title}
                   />
