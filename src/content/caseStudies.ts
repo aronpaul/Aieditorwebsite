@@ -11,7 +11,12 @@ export interface CaseStudy {
     video?: string;
     btsVideo?: string;
     btsThumbnail?: string;
+    // Inline side-by-side: human performance reference vs. final generated frame
+    performanceVideo?: string;
+    performancePoster?: string;
+    performanceCaption?: string;
   };
+  accolade?: string;
   client?: string;
   year?: string;
   // Optional new structure fields
@@ -26,7 +31,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "the-chubbies-fall-into-my-arms",
     title: 'The Chubbies - "Fall Into My Arms"',
-    summary: "A fully AI-generated music video built around a simple production truth: prompted emotion was not enough. The breakthrough came from replacing text-only acting direction with iPhone performance reference, then running that performance through a reference-driven AI pipeline that could carry emotion, continuity, and editorial intent across 61 shots.",
+    summary: "An award-winning, cutting-edge exploration of where AI meets the human condition. \"Fall Into My Arms\" is a fully AI-generated music video about a mother and son pulled apart, and it lands because the emotion at its center is human. Every key beat began as a real performance captured on an iPhone, then was carried through a reference-driven AI pipeline across 61 shots, so the machine renders the world while a person supplies the heart.",
     problem: "The song lives in a mother-son dynamic that moves into painful emotional territory. The central challenge was getting a performance to transition inside a single shot, from anger to frustration to breakdown, without flattening into a single readable note. Prompted emotion consistently came back wooden and over-described, while multi-character reaction scenes introduced another layer of instability around power dynamics, eyelines, and group behavior.",
     approach: "The solution was to stop asking the model to invent the emotional arc from text alone. Jeannette performed each beat to her iPhone from specific planned framings, and those videos became reference-driven inputs for Seedance 2.0's performance replacement. The broader workflow paired character reference sheets, still-first shot development, model selection based on physics and control, Topaz upscaling for reframing latitude, and a traditional Resolve finishing pass to make the film feel coherent rather than generated.",
     deliverables: [
@@ -39,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     constraint: "Prompting emotion directly was dead on arrival. The model could express one feeling at a time, but not transition cleanly between them inside a take. Performance references also needed to match the intended final framing; because the film was boarded after those references were recorded, weeks were lost working around angle, eyeline, and distance mismatches. Multi-character reaction scenes pushed the difficulty further, with four-person emotional dynamics remaining far less controllable than single-subject performance work.",
     direction: "The creative goal was to make the work feel emotionally inhabited rather than technically impressive. Every major choice leaned toward grounded performance, consistent character identity, and a finished-film sensibility instead of the default AI look. That meant designing shots from stills first, treating model choice as a creative decision rather than a brand preference, and finishing the piece with the same editorial and grading discipline used on live-action work.",
     execution: "The pipeline was character reference sheets to lock identity, iPhone performance reference to supply emotional timing, Seedance 2.0 for reference-driven video generation after an initial Veo 3.0 start, Topaz upscaling from 1080 to 4K for extra reframing room, then editorial and color finishing in DaVinci Resolve. Still images were used to lock composition, lighting, and wardrobe before expensive video generations. Seedance proved stronger for performance replacement and physical behavior, especially in demanding shots like the boy falling through black space. Resolve was essential for shaping continuity across the cut, softening the overly clean generative house look, and making 61 generated shots feel like one piece of cinema.",
-    outcome: "The finished video proved that emotionally credible AI work depends less on clever prompting than on giving the model the right performance source, framing logic, and post-production discipline. The biggest lessons were blunt: board the film before collecting performance reference, use image-based identity locks early, and budget extra time for scenes with more than two people reacting in frame. The result stands as both a completed music video and a practical blueprint for reference-driven AI filmmaking that treats performance as the load-bearing element.",
+    outcome: "The finished film was named an Official Selection of the 2026 Austin AI Film Festival, and it makes a clear argument about where this technology is headed: emotionally credible AI work depends less on clever prompting than on a real human performance at the core, the right framing logic, and post-production discipline. The side-by-side above is the proof. Every glance, hesitation, and breakdown in the final frame traces back to an actor's choice, not a text prompt. The hard lessons were blunt: board the film before collecting performance reference, lock identity with images early, and budget extra time for scenes with more than two people reacting in frame. The result stands as both a finished music video and a working blueprint for AI filmmaking that treats human performance as the load-bearing element.",
     media: {
       hero: "/images/the-chubbies-fall-into-my-arms-hero-v2.jpg",
       gallery: [
@@ -53,8 +58,13 @@ export const caseStudies: CaseStudy[] = [
       video: "https://www.youtube.com/watch?v=qLtgGLj__Go",
       btsVideo: "https://d2ol7oe51mr4n9.cloudfront.net/user_2vJShxds21sGvyfsUDfkIPnjsrP/26b8ecd5-0cf3-465b-9454-5029afe24342.mp4",
       btsThumbnail: "/images/the-chubbies-fall-into-my-arms-gallery-02.jpg",
+      performanceVideo: "/videos/fall-into-my-arms-performance-vs-generation.mp4",
+      performancePoster: "/images/the-chubbies-fall-into-my-arms-performance-poster.jpg",
+      performanceCaption: "Left: the final generated frame. Right: the iPhone performance it was built from. The emotional timing, gesture, and intensity all come from the actor; the AI pipeline carries that performance into the world of the film.",
     },
     client: "The Chubbies",
+    year: "2026",
+    accolade: "Official Selection · 2026 Austin AI Film Festival",
   },
   {
     slug: "reign-storm-energy-drink",

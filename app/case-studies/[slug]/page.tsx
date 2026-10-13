@@ -58,6 +58,16 @@ export default function CaseStudyPage() {
                 {caseStudy.client} • {caseStudy.year}
               </motion.span>
             )}
+            {caseStudy.accolade && (
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 }}
+                className="inline-block mb-4 border border-white/30 px-4 py-1.5 text-[11px] uppercase tracking-[0.28em] text-white/90"
+              >
+                {caseStudy.accolade}
+              </motion.span>
+            )}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,6 +107,43 @@ export default function CaseStudyPage() {
                 </p>
               </div>
             </motion.section>
+
+            {/* Performance vs. Generation (inline side-by-side) */}
+            {caseStudy.media.performanceVideo && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="w-full flex justify-center mt-16"
+              >
+                <div className="w-full max-w-5xl">
+                  <p className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-3">
+                    Performance → Generation
+                  </p>
+                  <h3 className="!text-center text-2xl md:text-3xl font-light mb-6">
+                    The Human Behind the Frame
+                  </h3>
+                  <div className="relative w-full aspect-video overflow-hidden rounded-sm border border-gray-900 bg-black">
+                    <video
+                      className="absolute inset-0 h-full w-full object-contain"
+                      src={caseStudy.media.performanceVideo}
+                      poster={caseStudy.media.performancePoster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      preload="metadata"
+                    />
+                  </div>
+                  {caseStudy.media.performanceCaption && (
+                    <p className="max-w-3xl mx-auto mt-4 !text-center text-sm text-neutral-400 leading-relaxed">
+                      {caseStudy.media.performanceCaption}
+                    </p>
+                  )}
+                </div>
+              </motion.section>
+            )}
 
             {/* New Structure: Brief, Constraint, Direction, Execution, Outcome */}
             {caseStudy.brief ? (
