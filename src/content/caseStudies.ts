@@ -16,7 +16,8 @@ export interface CaseStudy {
     performancePoster?: string;
     performanceCaption?: string;
   };
-  accolade?: string;
+  accolades?: string[];
+  awardsImage?: string;
   client?: string;
   year?: string;
   // Optional new structure fields
@@ -44,7 +45,7 @@ export const caseStudies: CaseStudy[] = [
     constraint: "Prompting emotion directly was dead on arrival. The model could express one feeling at a time, but not transition cleanly between them inside a take. Performance references also needed to match the intended final framing; because the film was boarded after those references were recorded, weeks were lost working around angle, eyeline, and distance mismatches. Multi-character reaction scenes pushed the difficulty further, with four-person emotional dynamics remaining far less controllable than single-subject performance work.",
     direction: "The creative goal was to make the work feel emotionally inhabited rather than technically impressive. Every major choice leaned toward grounded performance, consistent character identity, and a finished-film sensibility instead of the default AI look. That meant designing shots from stills first, treating model choice as a creative decision rather than a brand preference, and finishing the piece with the same editorial and grading discipline used on live-action work.",
     execution: "The pipeline was character reference sheets to lock identity, iPhone performance reference to supply emotional timing, Seedance 2.0 for reference-driven video generation after an initial Veo 3.0 start, Topaz upscaling from 1080 to 4K for extra reframing room, then editorial and color finishing in DaVinci Resolve. Still images were used to lock composition, lighting, and wardrobe before expensive video generations. Seedance proved stronger for performance replacement and physical behavior, especially in demanding shots like the boy falling through black space. Resolve was essential for shaping continuity across the cut, softening the overly clean generative house look, and making 61 generated shots feel like one piece of cinema.",
-    outcome: "The finished film was named an Official Selection of the 2026 Austin AI Film Festival, and it makes a clear argument about where this technology is headed: emotionally credible AI work depends less on clever prompting than on a real human performance at the core, the right framing logic, and post-production discipline. The side-by-side above is the proof. Every glance, hesitation, and breakdown in the final frame traces back to an actor's choice, not a text prompt. The hard lessons were blunt: board the film before collecting performance reference, lock identity with images early, and budget extra time for scenes with more than two people reacting in frame. The result stands as both a finished music video and a working blueprint for AI filmmaking that treats human performance as the load-bearing element.",
+    outcome: "The finished film won Best Music Video and Best Director at the 2026 AI International Music Video Festival and is a finalist at the 2026 Austin AI Film Festival. It makes a clear argument about where this technology is headed: emotionally credible AI work depends less on clever prompting than on a real human performance at the core, the right framing logic, and post-production discipline. The side-by-side above is the proof. Every glance, hesitation, and breakdown in the final frame traces back to an actor's choice, not a text prompt. The hard lessons were blunt: board the film before collecting performance reference, lock identity with images early, and budget extra time for scenes with more than two people reacting in frame. The result stands as both a finished music video and a working blueprint for AI filmmaking that treats human performance as the load-bearing element.",
     media: {
       hero: "/images/the-chubbies-fall-into-my-arms-hero-v2.jpg",
       gallery: [
@@ -64,7 +65,12 @@ export const caseStudies: CaseStudy[] = [
     },
     client: "The Chubbies",
     year: "2026",
-    accolade: "Official Selection · 2026 Austin AI Film Festival",
+    accolades: [
+      "Winner · Best Music Video · AI International Music Video Festival 2026",
+      "Winner · Best Director · AI International Music Video Festival 2026",
+      "Finalist · 2026 Austin AI Film Festival",
+    ],
+    awardsImage: "/images/the-chubbies-fall-into-my-arms-laurels.jpg",
   },
   {
     slug: "reign-storm-energy-drink",

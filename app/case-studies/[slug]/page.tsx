@@ -58,15 +58,22 @@ export default function CaseStudyPage() {
                 {caseStudy.client} • {caseStudy.year}
               </motion.span>
             )}
-            {caseStudy.accolade && (
-              <motion.span
+            {caseStudy.accolades && caseStudy.accolades.length > 0 && (
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
-                className="inline-block mb-4 border border-white/30 px-4 py-1.5 text-[11px] uppercase tracking-[0.28em] text-white/90"
+                className="mb-5 flex flex-wrap justify-center gap-2"
               >
-                {caseStudy.accolade}
-              </motion.span>
+                {caseStudy.accolades.map((a) => (
+                  <span
+                    key={a}
+                    className="border border-white/30 px-3 py-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.24em] text-white/90"
+                  >
+                    {a}
+                  </span>
+                ))}
+              </motion.div>
             )}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -107,6 +114,43 @@ export default function CaseStudyPage() {
                 </p>
               </div>
             </motion.section>
+
+            {/* Awards */}
+            {caseStudy.awardsImage && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="w-full flex justify-center mt-16"
+              >
+                <div className="w-full max-w-5xl grid md:grid-cols-2 gap-10 items-center">
+                  <div className="relative w-full aspect-square overflow-hidden rounded-sm border border-gray-900">
+                    <Image
+                      src={caseStudy.awardsImage}
+                      alt={`${caseStudy.title} festival laurels`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-3">Recognition</p>
+                    <h3 className="text-2xl md:text-3xl font-light mb-6 md:!text-left">Awards &amp; Festivals</h3>
+                    <ul className="space-y-4">
+                      {caseStudy.accolades?.map((a) => {
+                        const [status, ...rest] = a.split(" · ");
+                        return (
+                          <li key={a} className="border-l border-white/20 pl-4">
+                            <p className="text-[11px] uppercase tracking-[0.25em] text-neutral-400">{status}</p>
+                            <p className="text-base text-white font-light">{rest.join(" · ")}</p>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              </motion.section>
+            )}
 
             {/* Performance vs. Generation (inline side-by-side) */}
             {caseStudy.media.performanceVideo && (
